@@ -9,6 +9,12 @@ const numberslist = [1, 2, 345, 678, 9000, 87, 568, 988870, 1234567890, 12345678
 //Math log reduction is second last
 //The first one is the slowest
 
+//SPECIAL CASE:
+//If constraints are given of the number being > 1 and less than 100000. Then straight comparison
+//of the numbers by taking the numbers and comparing them is the fastest. 
+//For example all numbers greater than 9, but less tahn 100 or those greater than 999 but less than 10000 are even and so on.
+//The final answer is the fastest
+
 
 //Approach 1.
 //Logic: If you divide a number by ten, if the result is less than 1, stop.
@@ -120,6 +126,22 @@ const logReduction = (numberslist: number[]) => {
 
 console.time('Execution time')
 logReduction(numberslist);
+console.timeEnd('Execution time')
+
+//If constraints of numbers in the list being smaller than 100000 is given
+
+const straightComparison = (numberslist: number[]) => {        
+    let count = 0
+    numberslist.forEach((number: number) => {
+        if(number > 9 && number < 100 || number > 999 && number < 10000){
+            count ++
+        }
+    })
+    console.log(count)
+}
+
+console.time('Execution time')
+straightComparison(numberslist);
 console.timeEnd('Execution time')
 
 
