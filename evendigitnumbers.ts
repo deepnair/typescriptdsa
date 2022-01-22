@@ -1,7 +1,14 @@
 //Problem find the number of digits in the array that have an even number of digits
 
-const numberslist = [1, 2, 345, 678, 9000, 87, 568, 988870, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890]
-
+// const numberslist = [1, 2, 345, 678, 9000, 87, 568, 988870, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890, 1234567890]
+const numberslist: number[] = []
+for (let i=0; i<20; i++){
+    numberslist.push(9);
+    numberslist.push(99)
+    numberslist.push(999)
+    numberslist.push(9999)
+    numberslist.push(99999)
+}
 //RESULTS: 
 //String length with forEach is fastest
 //Reduced continuous division is second fastest
@@ -118,7 +125,7 @@ console.timeEnd('Execution time')
 const logReduction = (numberslist: number[]) => {
     console.log(
         numberslist.reduce((prev: number, curr: number) => {
-            Math.round(Math.log10(curr)+1)%2 === 0 ? prev++ : prev;
+            Math.floor(Math.log10(curr)+1)%2 === 0 ? prev++ : prev;
             return prev
         }, 0)
     )
